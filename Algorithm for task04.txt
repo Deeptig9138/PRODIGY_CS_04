@@ -1,0 +1,36 @@
+Algorithm for keylogger.py
+
+
+1. Initialize Keylogger:
+    - Define the log file name (`log_file = 'keylog.txt'`).
+    - Print a message indicating the keylogger has started and how to quit.
+
+2. Open Log File:
+    - Use a context manager to open the log file in append mode (`'a'`).
+
+3. Start Infinite Loop:
+    - Enter a `while True` loop to continuously capture keyboard events.
+
+4. Capture Keyboard Events:
+    - Use `keyboard.read_event()` to capture each keyboard event.
+
+5. Check Event Type:
+    - If the event is a key press (`event.event_type == keyboard.KEY_DOWN`):
+        - Retrieve the key name (`key = event.name`).
+
+6. Handle Special Keys:
+    - If the key length is greater than 1, format it by enclosing in square brackets (`if len(key) > 1: key = f"[{key}]"`).
+
+7. Log Key:
+    - Write the key to the log file without adding a newline (`f.write(key)`).
+    - Print the logged key on the same line in the console (`print(f"Key logged: {key}", end=' ', flush=True)`).
+
+8. Check for Quit Key:
+    - If the key is `'q'`, print a message indicating the keylogger has stopped and break the loop.
+
+9. Handle Interrupt:
+    - Use a `try-except` block to handle `KeyboardInterrupt` (e.g., `Ctrl+C`) to gracefully exit the loop.
+
+10. Main Execution:
+    - If the script is run directly, call the `keylogger()` function.
+
